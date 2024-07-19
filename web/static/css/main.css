@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+}
+
+html {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: calc(2rem + 1vw);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: calc(1.7rem + 1vw);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: calc(1.5rem + 1vw);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: calc(1.3rem + 1vw);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: calc(1.1rem + 1vw);
+  font-weight: 500;
+}
+
+h6 {
+  font-size: calc(1rem + 1vw);
+  font-weight: 500;
+}
+
+p, a {
+  font-size: calc(1rem + 0.3vw);
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1440px) {
+  html {
+    font-size: 18px;
+  }
+}
+

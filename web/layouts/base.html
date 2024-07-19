@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Blog -
+    {{ template "title" }}
+  </title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900');
+  </style>
+  <script src="https://unpkg.com/htmx.org@2.0.1/dist/htmx.js"
+    integrity="sha384-gpIh5aLQ0qmX8kZdyhsd6jA24uKLkqIr1WAGtantR4KsS97l/NRBvh8/8OYGThAf"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="flex justify-between items-center md:px-8 lg:px-16 xl:px-20 sm:px-4 md:py-8 py-4 px-2">
+    <img class="max-w-32 min-w-10" src="../static/images/icondark.png" alt="The blog&#39;s icon">
+    <nav>
+      <ul class="flex gap-12 font-body">
+        <li class="hover:text-blue transition-all duration-150"><a href="">Home</a></li>
+        <li class="hover:text-blue transition-all duration-150"><a href="">Articles</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="md:px-8 lg:px-16 xl:px-20 sm:px-4 px-2 xl:pb-16 lg:pb-12 md:pb-8 sm:pb-6 pb-4">
+      {{ template "content" WithComData  
+          "Type" "Text"
+      }}
+  </main>
+  <footer class="flex max-[400px]:flex-col md:px-8 lg:px-16 xl:px-20 sm:px-4 px-2 xl:py-12 lg:py-8 md:py-6 sm:py-4 py-3 items-center justify-center bg-blue relative">
+        <p class="absolute left-1/2 top-1/2 -translate-x-1/2 font-body">©Copyright Daniel</p>
+        <div class="flex flex-col gap-1 ml-auto">
+        <h6 class="font-bold font-body">My Socials</p>
+          <ul class="flex justify-between items-center">
+            <li><a href="https://www.youtube.com/@daniscoolandstunning"><img class="lg:w-7 sm:w-6 w-5" src="../static/images/youtube_icon.svg" alt="Youtube logo"></a></li>
+            <li><a href="https://x.com/popndau"><img class="lg:w-7 sm:w-6 w-5" src="../static/images/twitter_icon.svg" alt="Twitter logo"></a></li>
+            <li><a href="https://www.instagram.com/pokendau/"><img class="lg:w-7 sm:w-6 w-5" src="../static/images/instagram_icon.svg" alt="Instagram logo"></a></li>
+          </ul>  
+        </div>
+        
+  </footer>
+  <script src="../static/scripts/script.js"></script>
+</body>
+
+</html>
