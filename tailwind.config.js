@@ -1,19 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./layouts/**/*.html", "./pages/**/*.html"],
+  content: ["./web/layouts/**/*.html", "./web/pages/**/*.html"],
   theme: {
     colors: {
       "white": "#f8eee1",
-      "darkgreen": "#275657",
-      "brown": {
-        100: "#ECE1CD",
-        200: "#42362B",
-        500: "#AA7338",
-        900: "#C99654",
-      }
+      "yellow": "#ffbe0b",
+      "orange": "#fb5607",
+      "pink": "#ff006e",
+      "purple": "#8338ec",
+      "blue": "#3a86ff",
     },
     fontFamily: {
-      display: ['"Playwrite HU"', "cursive"],
       body: ['"League Spartan"', "sans-serif"]
     }
   },
