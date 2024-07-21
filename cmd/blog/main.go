@@ -47,5 +47,25 @@ func main() {
 		),
 	)
 
+	http.HandleFunc("/articles/", func(w http.ResponseWriter, r *http.Request) {
+		fp_layout := filepath.Join(cwd, "web", "layouts", "articles.html")
+		fp_page := filepath.Join(cwd, "web", "pages", "articles.html")
+
+		funcmap := template.FuncMap{
+			"WithComData": api.WithComData,
+		}
+
+		tmpl, err := template.New("base.html").Funcs(funcmap).ParseFiles(fp_layout, fp_page)
+
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		if err := tmpl.Execute(w, ""); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+	})
+
 	log.Fatal(http.ListenAndServe(":7269", nil))
 }
