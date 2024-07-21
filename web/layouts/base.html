@@ -20,15 +20,13 @@
     <img class="max-w-32 min-w-10" src="../static/images/icondark.png" alt="The blog&#39;s icon">
     <nav>
       <ul class="flex gap-12 font-body">
-        <li class="hover:text-blue transition-all duration-150"><a href="">Home</a></li>
-        <li class="hover:text-blue transition-all duration-150"><a href="">Articles</a></li>
+        <li hx-boost="true" class="hover:text-blue transition-all duration-150"><a href="/">Home</a></li>
+        <li hx-boost="true" class="hover:text-blue transition-all duration-150"><a href="/articles">Articles</a></li>
       </ul>
     </nav>
   </header>
   <main class="md:px-8 lg:px-16 xl:px-20 sm:px-4 px-2 xl:pb-16 lg:pb-12 md:pb-8 sm:pb-6 pb-4">
-      {{ template "content" WithComData  
-          "Type" "Text"
-      }}
+      {{ template "content" }}
   </main>
   <footer class="flex max-[400px]:flex-col md:px-8 lg:px-16 xl:px-20 sm:px-4 px-2 xl:py-12 lg:py-8 md:py-6 sm:py-4 py-3 items-center justify-center bg-blue relative">
         <p class="absolute left-1/2 top-1/2 -translate-x-1/2 font-body">©Copyright pokendau</p>
