@@ -3,7 +3,7 @@ Homepage
 {{ end }}
 
 {{ define "content" }}
-<section class="flex justify-between items-center">
+<main class="flex justify-between items-center">
   <div class="shrink w-1/2">
     <h1 class="font-black">Hi👋, 
     My name is <span class="text-pink">pokendau
@@ -11,11 +11,12 @@ Homepage
     <h2>And I am a programmer</h2>
     <p>Not a very good one tbh. <span class="text-orange font-semibold">awesome</span>.</p>
   </div>
-  <div class="flex justify-center w-1/3 shrink">
+  <figure class="flex justify-center w-1/3 shrink">
     <img class="object-cover w-fit h-fit max-h-[420px] rounded-xl border-8 border-purple" src="../static/images/pfp" alt="My Profile Image"> 
-  </div>
-</section>
-<section>
+    <!--<figcaption class="absolute">My Profile Image</figcaption>-->
+  </figure>
+</main>
+<section class="body-section">
  <h2>Latest Articles</h2> 
 </section>
 
