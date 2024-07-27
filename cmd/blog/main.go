@@ -1,12 +1,15 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"github.com/joho/godotenv"
 
 	"blog/api"
 )
@@ -16,6 +19,12 @@ func main() {
 
 	if err != nil {
 		log.Fatalf("Error getting the current working directory, %v", err)
+	}
+
+	err = godotenv.Load()
+
+	if err != nil {
+		log.Fatal("Error loading .env file")
 	}
 
 	fmt.Println("The server is running on port 7269")
@@ -48,7 +57,7 @@ func main() {
 	)
 
 	http.HandleFunc("/articles/", func(w http.ResponseWriter, r *http.Request) {
-		fp_layout := filepath.Join(cwd, "web", "layouts", "articles.html")
+		fp_layout := filepath.Join(cwd, "web", "layouts", "base.html")
 		fp_page := filepath.Join(cwd, "web", "pages", "articles.html")
 
 		funcmap := template.FuncMap{
@@ -67,5 +76,17 @@ func main() {
 		}
 	})
 
-	log.Fatal(http.ListenAndServe(":7269", nil))
+	http.HandleFunc("/admin/", func(w http.ResponseWriter, r *http.Request) {
+		username, password, ok := r.BasicAuth()
+		if !ok || username != os.Getenv("USERNAME") || password != os.Getenv("PASSWORD") {
+			w.Header().Set("WWW-AUTHENTICATE", "Basic realm=\"restricted\"")
+			http.Error(w, "Unauthorized", http.StatusUnauthorized)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode("kebab")
+	})
+
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
 }
