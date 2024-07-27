@@ -3,5 +3,6 @@ package-lock.json
 package.json
 tmp/
 node_modules/
-static/css/style.css
+web/static/css/style.css
 .prettierrc
+.env
