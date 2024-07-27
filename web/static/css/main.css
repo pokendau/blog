@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  main, .body-section {
+    @apply md:px-8 lg:px-16 xl:px-20 sm:px-4 px-2 xl:pb-16 lg:pb-12 md:pb-8 sm:pb-6 pb-4;
+  }
 }
 
 html {
