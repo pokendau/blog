@@ -88,5 +88,17 @@ func main() {
 		json.NewEncoder(w).Encode("kebab")
 	})
 
+	http.HandleFunc("/admin/editor/", func(w http.ResponseWriter, r *http.Request) {
+		username, password, ok := r.BasicAuth()
+		if !ok || username != os.Getenv("USERNAME") || password != os.Getenv("PASSWORD") {
+			w.Header().Set("WWW-AUTHENTICATE", "Basic realm=\"restricted\"")
+			http.Error(w, "Unauthorized", http.StatusUnauthorized)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode("editor")
+	})
+
 	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
 }
