@@ -6,3 +6,4 @@ node_modules/
 web/static/css/style.css
 .prettierrc
 .env
+blog.db
