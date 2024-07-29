@@ -15,6 +15,13 @@ import (
 )
 
 func main() {
+	db, err := api.DbSetup()
+	defer db.Close()
+
+	if err != nil {
+		log.Fatalf("Error with the database, %v", err)
+	}
+
 	cwd, err := os.Getwd()
 
 	if err != nil {
